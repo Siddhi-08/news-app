@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "https://Siddhi-08.github.io/reactproject",
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "react-top-loading-bar": "^2.3.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://Siddhi-08.github.io/reactproject",
   "scripts": {
     "predeploy": "npm run build",
    "deploy": "gh-pages -d build",
