@@ -21,7 +21,22 @@ const News = (props) => {
     props.setProgress(10);
     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=9ac17ce3e6f34265ad596c8c776efda6&page=${page}&pageSize=${props.pageSize}`;
     setLoading(true);
-    let data = await fetch(url);
+    try {
+      let response = await fetch(url, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+            
+          }
+      });
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      let data = await response.json();
+      console.log(data);
+  } catch (error) {
+      console.error('Fetch error:', error);
+  }
     props.setProgress(30);
     let parsedData = await data.json();
     props.setProgress(50);
